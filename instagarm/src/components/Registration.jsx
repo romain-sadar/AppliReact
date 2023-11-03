@@ -20,6 +20,7 @@ export const Registration = () => {
             }
         })
     }
+    
 
   return (
 
@@ -38,6 +39,6 @@ export const Registration = () => {
     </div>
     
   )
-}
+  }
 
 export default Registration;

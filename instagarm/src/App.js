@@ -1,10 +1,11 @@
 import logo from "./logo.svg";
 import "./style/App.css";
 import axios from "axios";
-import { Registration } from "./components/Registration";
-import { Login } from "./components/Login";
+import { Feed } from "./components/Feed";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home";
 
 function App() {
   const users = useSelector((state) => state.users);
@@ -13,25 +14,12 @@ function App() {
 
   return (
     <div className="App">
-      {users.map((user) => (
-        <div key={user.id}>
-          {user.email} - {user.username}
-        </div>
-      ))}
-
-      <Registration />
-
-      {user ? (
-        <input
-          type="button"
-          value="Se Déconnecter"
-          onClick={() => {
-            dispatch({ type: "LOGOUT_USER" });
-          }}
-        />
-      ) : (
-        <Login />
-      )}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/feed" element={<Feed />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

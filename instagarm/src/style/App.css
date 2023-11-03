@@ -1,4 +1,25 @@
 html {
   background-color: black;
-  color : white
+  color : white;
+  text-align: center;
+}
+
+.inscription{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.register{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register input{
+  width: 20%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }

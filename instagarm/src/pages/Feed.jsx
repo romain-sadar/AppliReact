@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPost, deletePost } from "../reducers/postReducers";
 import { useAtom } from "jotai";
 import { userAtom } from "../utils/globalState";
-import PostList from "./PostList";
-import Like from "./Like";
+import PostList from "../components/PostList";
+import Like from "../components/Like";
 
 const Feed = () => {
   const [postName, setPostName] = useState("");
@@ -43,6 +43,7 @@ const Feed = () => {
 
   return (
     <div className="feed-container">
+
       <h1 className="welcome-text">Bienvenue sur Instagarm {user.name}</h1>
       <h2>Poster</h2>
       <input
@@ -57,7 +58,7 @@ const Feed = () => {
         <button onClick={handleAdd}>Faire un post</button>
       )}
       <ul>
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <li key={post.id} className="post-item">
             <div className="post-content">
               <p>{post.name}</p>
